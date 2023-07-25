@@ -1,0 +1,32 @@
+<h2>Main Page</h2>
+
+<div>
+  <label>Filter by Category:</label>
+  <button (click)="filterByCategory('new')">New</button>
+  <button (click)="filterByCategory('failed')">Failed</button>
+</div>
+
+<div>
+  <label>Sort by:</label>
+  <button (click)="sortByDate()">Date</button>
+  <button (click)="sortAlphabetically()">Alphabetically</button>
+</div>
+
+<input type="text" placeholder="Search..." [(ngModel)]="searchText" (keyup)="filterBySearch()">
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of filteredData">
+      <td>{{ item.name }}</td>
+      <td>{{ item.category }}</td>
+      <td>{{ item.date }}</td>
+    </tr>
+  </tbody>
+</table>
